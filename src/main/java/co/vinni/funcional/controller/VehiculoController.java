@@ -20,13 +20,13 @@ public class VehiculoController {
     @Autowired
     private final VehiculoServicio vehiculoServicio;
     @GetMapping
-    public ResponseEntity<List<Vehiculo>> getBankAccounts() {
-        var bankAccounts = vehiculoServicio.findAll();
-        return new ResponseEntity<>(bankAccounts, HttpStatus.OK);
+    public ResponseEntity<List<Vehiculo>> obtenerVehiculos() {
+        var vehiculos = vehiculoServicio.buscarTodos();
+        return new ResponseEntity<>(vehiculos, HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Vehiculo> getBankAccountById(@PathVariable Long id) {
-        var bankAccount = vehiculoServicio.findById(id);
-        return new ResponseEntity<>(bankAccount, HttpStatus.OK);
+    public ResponseEntity<Vehiculo> obtenerVehiculoXId(@PathVariable Long id) {
+        var vehiculo = vehiculoServicio.buscarXId(id);
+        return new ResponseEntity<>(vehiculo, HttpStatus.OK);
     }
 }

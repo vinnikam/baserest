@@ -13,10 +13,10 @@ import java.util.List;
 public class VehiculoServicio {
     @Autowired
     private final VehiculoRepositorio vehiculoRepositorio;
-    public Vehiculo findById(Long id) {
+    public Vehiculo buscarXId(Long id) {
         return vehiculoRepositorio.findById(id).orElseThrow();
     }
-    public List<Vehiculo> findAll() {
+    public List<Vehiculo> buscarTodos() {
         return vehiculoRepositorio.findAll();
     }
 }
