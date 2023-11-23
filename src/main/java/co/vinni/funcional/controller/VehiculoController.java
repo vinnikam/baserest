@@ -1,5 +1,6 @@
 package co.vinni.funcional.controller;
 
+import co.vinni.funcional.controller.exception.ResourceNotFoundException;
 import co.vinni.funcional.modelo.Vehiculo;
 import co.vinni.funcional.servicios.VehiculoServicio;
 import lombok.RequiredArgsConstructor;
@@ -25,8 +26,8 @@ public class VehiculoController {
         return new ResponseEntity<>(vehiculos, HttpStatus.OK);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Vehiculo> obtenerVehiculoXId(@PathVariable Long id) {
+    public ResponseEntity<Vehiculo> obtenerVehiculoXId(@PathVariable Long id)  throws ResourceNotFoundException {
         var vehiculo = vehiculoServicio.buscarXId(id);
-        return new ResponseEntity<>(vehiculo, HttpStatus.OK);
+        return ResponseEntity.ok(vehiculo);
     }
 }
